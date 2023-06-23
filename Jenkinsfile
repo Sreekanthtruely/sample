@@ -1,18 +1,15 @@
 pipeline {
-    agent{
-     node{
-        label "java_slave"
-     }
-    }
-    environment {
-        PATH = "/opt/maven/bin:$PATH"
-    }
-    stages{
-        stage("build code"){
-            steps{
-                sh 'mvn clean install'
-            }
-            
+	agent none
+  stages {
+  	stage('Maven Install') {
+    	agent {
+      	docker {
+        	image 'maven:3.5.0'
         }
+      }
+      steps {
+      	sh 'mvn clean install'
+      }
     }
+  }
 }
