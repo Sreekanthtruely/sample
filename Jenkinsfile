@@ -11,7 +11,7 @@ pipeline {
 	 stage('Execute Maven') {
            steps {
              
-                sh 'mvn package'             
+                bat "mvn package"             
           }
         }
   }
