@@ -4,7 +4,7 @@ pipeline {
       stage('checkout') {
            steps {
              
-                git branch: 'master', url: 'https://github.com/Sreekanthtruely/webapp.git'
+                git branch: 'master', url: 'https://github.com/Sreekanthtruely/sample.git'
              
           }
         }
