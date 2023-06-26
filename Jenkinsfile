@@ -11,7 +11,7 @@ pipeline {
 	 stage('Execute Maven') {
            steps {
              
-                call mvn clean package              
+                bat mvn clean package              
           }
         }
   }
