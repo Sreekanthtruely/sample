@@ -1,18 +1,12 @@
 pipeline {
-    agent any
- stages {
-      stage('checkout') {
-           steps {
-             
-                git credentialsId: 'GITHUB', url: 'https://github.com/Sreekanthtruely/sample.git'
-             
-          }
-        }
-	 stage('Execute Maven') {
-           steps {
-             
-                sh 'mvn clean package'              
-          }
-        }
+  agent {
+    docker { image 'node:16-alpine' }
+  }
+  stages {
+    stage('Test') {
+      steps {
+        sh 'node --version'
+      }
+    }
   }
 }
